@@ -5,20 +5,20 @@ from ..runtime_env import ensure_torch_backend_autoload_safe_default
 ensure_torch_backend_autoload_safe_default()
 
 # Backward-compat re-exports (tests import these from EvoScientist.cli)
-from ..stream.state import (  # noqa: F401
+from ..stream.state import (  # noqa: E402, F401
     StreamState,
     SubAgentState,
     _build_todo_stats,
     _parse_todo_items,
 )
-from . import commands  # noqa: F401 — registers @app.command decorators
-from ._app import app
-from ._constants import WELCOME_SLOGANS  # noqa: F401
-from .agent import _deduplicate_run_name  # noqa: F401
-from .channel import _channels_is_running, _channels_stop  # noqa: F401
+from . import commands  # noqa: E402, F401 — registers @app.command decorators
+from ._app import app  # noqa: E402 — runtime prerequisite must run before imports
+from ._constants import WELCOME_SLOGANS  # noqa: E402, F401
+from .agent import _deduplicate_run_name  # noqa: E402, F401
+from .channel import _channels_is_running, _channels_stop  # noqa: E402, F401
 
 # UI runtime re-exports (merged from former tui/ package)
-from .tui_runtime import (  # noqa: F401
+from .tui_runtime import (  # noqa: E402, F401
     DEFAULT_UI_BACKEND,
     SUPPORTED_UI_BACKENDS,
     get_backend,
